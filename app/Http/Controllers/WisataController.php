@@ -11,30 +11,24 @@ class WisataController extends Controller
     {
         return response()->json(Wisata::all());
     }
-
     public function showOne($id)
     {
         return response()->json(Wisata::find($id));
     }
-
     public function create(Request $request)
     {
-        $wisata = Wisata::create($request->all());
-
-        return response()->json($wisata, 201);
+        $Wisata = Wisata::create($request->all());
+        return response()->json($Wisata, 201);
     }
-
     public function update($id, Request $request)
     {
-        $wisata = Wisata::findOrFail($id);
-        $wisata->update($request->all());
-
-        return response()->json($wisata, 200);
+        $Wisata = Wisata::findOrFail($id);
+        $Wisata->update($request->all());
+        return response()->json($Wisata, 200);
     }
-
     public function delete($id)
     {
         Wisata::findOrFail($id)->delete();
-        return response()->json('Deleted Successfully', 200);
+        return response('Deleted Successfully', 200);
     }
 }
